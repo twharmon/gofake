@@ -8,9 +8,12 @@ import (
 // Paragraph .
 func Paragraph() string {
 	var b strings.Builder
-	for i := 0; i < rand.Intn(3)+3; i++ {
+	cnt := rand.Intn(3) + 3
+	for i := 0; i < cnt; i++ {
 		b.WriteString(Sentence())
-		b.WriteString(" ")
+		if i < cnt-1 {
+			b.WriteString(" ")
+		}
 	}
 	b.WriteString("\n\n")
 	return b.String()
